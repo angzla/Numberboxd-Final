@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">HttpRetrofitDemo</string>
+    <string name="enter_city_name">Enter City Name</string>
+    <string name="city_cannot_be_empty">City cannot be empty</string>
+    <string name="save">save</string>
+    <string name="delete_all">delete all</string>
+    <string name="no_cities">no cities</string>
+    <string name="weather">%1$s Weather</string>
+    <string name="temperature">Temperature: %1$s</string>
+</resources>
