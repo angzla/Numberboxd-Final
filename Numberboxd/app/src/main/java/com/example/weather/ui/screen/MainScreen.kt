@@ -83,7 +83,8 @@ fun MainScreen(
                 DetailsPhotoCard(
                     (mainViewModel.detailsUiState as DetailsUiState.Success).detailsResult,
                     seriesId,
-                    onSeasonSelected = { selectedSeason = it }
+                    onSeasonSelected = { selectedSeason = it },
+                    mainViewModel
                 )
             is DetailsUiState.Error -> Text(
                 text = "Error: " +
@@ -116,7 +117,8 @@ fun MainScreen(
 fun DetailsPhotoCard (
     detailsResult: DetailsResult,
     seriesId: String,
-    onSeasonSelected: (selectedSeason: Int) -> Unit
+    onSeasonSelected: (selectedSeason: Int) -> Unit,
+    mainViewModel: MainViewModel
 ) {
     var selectedSeason by rememberSaveable {
         mutableStateOf(1)
@@ -191,6 +193,7 @@ fun DetailsPhotoCard (
                     selectedSeason = it
                     changeSeason = true
                     onSeasonSelected(it)
+                    mainViewModel.getEpisodes(seriesId,  selectedSeason.toString(), "0ee8e741a484dbcebd23c922f5a8a778")
                     },
                 modifier = Modifier
                     .fillMaxWidth()
